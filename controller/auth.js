@@ -60,7 +60,8 @@ const signin = async (req, res) => {
       if (passwordCheck) {
         const options = {
           httpOnly: true,
-          // secure: true,
+          secure: true,
+          sameSite: "none",
           maxAge: 1000 * 60 * 60 * 24 * 7,
         };
         const token = await jwt.sign(
